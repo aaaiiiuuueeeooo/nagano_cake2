@@ -1,0 +1,17 @@
+<h2>ジャンル一覧・追加</h2>
+
+<%= form_with url: "/admin/genres", method: :post, local: true do |form| %>
+  <%= form.text_field :content %>
+  <%= form.submit '新規登録' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      ジャンル
+    </tr>
+  </thead>
+  <tbody>
+     <% @genres.each do |genre| %>
+     <% end %>
+  </tbody>
+</table>
