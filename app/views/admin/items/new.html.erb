@@ -1,0 +1,11 @@
+商品新規登録画面
+
+<%= form_with model: @item,url: admin_items_path, method: :post, local: true do |form| %>
+  <%= form.text_field :name %>
+  <%= form.text_area :introduction %>
+  <%= form.select :genre_id %>
+  <%= form.number_field :price %>
+  <%= form.radio_button :'販売中' %>
+  <%= form.radio_button :'販売停止中' %>
+  <%= f.submit '新規登録' %>
+  <% end %>
