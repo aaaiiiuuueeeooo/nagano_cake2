@@ -13,10 +13,10 @@
   <% @items.each do |item| %>
   <tr>
       <td>
-          <%= items_id %>
+          <%= item.id %>
       </td>
       <td>
-          <%= link_to admin_item_path(item.id) %>
+          <%= link_to item.name, admin_item_path(item.id) %>
       </td>
       <td>
           <%= item.price %>
@@ -25,11 +25,11 @@
           <%= item.genre_id %>
       </td>
       <td>
-          <%= is_active %>
+          <%= item.is_active %>
       </td>
   </tr>
-  
- 
+
+
   <% end %>
   </tbody>
 </table>
