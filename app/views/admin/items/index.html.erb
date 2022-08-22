@@ -22,10 +22,14 @@
           <%= item.price %>
       </td>
       <td>
-          <%= item.genre_id %>
+          <%= item.genre.name %>
       </td>
       <td>
-          <%= item.is_active %>
+          <% if item.is_active %>
+          <p>販売中</p>
+          <% else %>
+          <p>販売停止中</p>
+          <% end %>
       </td>
   </tr>
 
