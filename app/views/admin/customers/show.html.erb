@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row mt-2">
+    <div class="col-mid-2 offset-md-2"></div>
+  </div>
+  <div class="row-mt3 pt-3">
+    <div class="col-md-4 offset-md-2">
+      <div class="row field">
+        <% @customer.eacch do |customer| %>
+        <div class="col-md-2"><%= "会員ID" %></div><div class="col-md-6"><%= customer.id %></div>
+
+        <div class="col-md-2"><%= "氏名" %></div><div class="col-md-6"><%= customer.last_name %><%= customer.first_name %></div>
+
+        <div class="col-md-2"><%= "フリガナ" %></div><div class="col-md-6"><%= customer.last_name_kana %><%= customer.last_name_kana %></div>
+
+        <div class="col-md-2"><%= "郵便番号" %></div><div class="col-md-6"><%= customer.postal_code %></div>
+
+        <div class="col-md-2"><%= "住所" %></div><div class="col-md-6"><%= customer.address %></div>
+
+        <div class="col-md-2"><%= "電話番号" %></div><div class="col-md-6"><%= customer.telephone_number %></div>
+
+        <div class="col-md-2"><%= "メールアドレス" %></div><div class="col-md-6"><%= customer.email %></div>
+
+        <div class="col-md-2"><%= "会員ステータス" %></div><div class="col-md-6"><%= if customer.is_active %>
+        <p>販売中</p>
+        <% else %>
+        <p>販売停止中</p>
+        <% end %>
+        </div>
+        <%= link_to "編集する", edit_admin_customer_path %> <%= link_to "注文履歴一覧を見る", admin_order_path %>
+      </div>
+    </div>
+  </div>
+</div>
