@@ -6,20 +6,23 @@
     <div class="col-md-6 offset-md-3">
       <%= form_with model: @item,url: admin_item_path, method: :patch, local: true do |form| %>
       <div class="row field">
+       <div class="col-md-4"><%= form.label :image, "商品画像" %></div> <div class="col-md-8"> <%= form.file_field :image, accept: "image/*" %></div>
+      </div>
+      <div class="row field">
         <div class="col-md-4"><%= form.label :name, "商品名" %></div> <div class="col-md-8"><%= form.text_field :name,class:"form-control" %></div>
       </div>
       <div class="row field">
         <div class="col-md-4"><%= form.label :introduction, "商品説明" %></div> <div class="col-md-8"><%= form.text_area :introduction,class:"form-control" %></div>
       </div>
       <div class="row field">
-        <div class="col-md-4"><%= form.label :genre, "ジャンル" %></div> <div class="col-md-8"><%= form.collection_select :genre_id, Genre.all, :id, :name,class:"form-control" %></div>
+        <div class="col-md-4"><%= form.label :genre, "ジャンル" %></div> <div class="col-md-8"><%= form.collection_select :genre_id, Genre.all, :id, :name, { prompt: "plese select" }, class: "form-control" %></div>
       </div>
       <div class="row-field">
         <div class="col-md-4"><%= form.label :price, "税抜価格" %></div> <div class="col-md-8"><%= form.number_field :price,class:"form-control" %></div>
       </div>
-      <div>
-        <%= form.label :is_active, "販売ステータス" %><%= form.radio_button :is_active, :true %><%= form.label :is_active, "販売中", value: true %>
-        <%= form.radio_button :is_active, :false %><%= form.label :is_active, "販売停止中", value: false %>
+      <div class="row-field">
+        <div class="col-md-4"><%= form.label :is_active, "販売ステータス" %></div><div class="col-md-8"><%= form.radio_button :is_active, :true %> <%= form.label :is_active, "販売中", value: true %>
+        <%= form.radio_button :is_active, :false %><%= form.label :is_active, "販売停止中", value: false %></div>
       </div>
       <div>
         <%= form.submit '変更を保存' %>

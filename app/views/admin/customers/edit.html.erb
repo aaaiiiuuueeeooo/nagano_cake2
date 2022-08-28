@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row mt-2">
+    <div class="col-mid-2 offset-md-2">会員編集</div>
+  </div>
+  <div class="row-mt-3 pt-3">
+    <div class="col-md-4 offset-md-2">
+      <div class="row field">
+        <%= form_with model: @customer,url: admin_customer_path, method: :patch, local: true do |form| %>
+        <div class="row field">
+          <div class="col-md-4"><%= "会員ID" %></div>
+          <div class="row field">
+          <div class="col-md-4"><%= "氏名" %></div>
+          <div class="row field">
+          <div class="col-md-4"><%= "フリガナ" %></div>
+          <div class="row field">
+          <div class="col-md-4"><%= "郵便番号" %></div>
+          <div class="row field">
+          <div class="col-md-4"><%= "住所" %></div>
+          <div class="row field">
+          <div class="col-md-4"><%= "電話番号" %></div>
+          <div class="row field">
+          <div class="col-md-4"><%= "メールアドレス" %></div>
+          <div class="row field">
+          <div class="col-md-4"><%= "会員ステータス" %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
