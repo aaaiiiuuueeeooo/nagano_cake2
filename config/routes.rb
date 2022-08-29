@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 scope module: :public do
 root to: 'homes#top'
   get 'homes/top'
+  get 'admin/homes/top'
   get 'about' => 'homes#about'
   get 'unsubscribe' => 'customers#unsubscribe'
   get 'withdraw' => 'customers#withdraw'
@@ -29,9 +30,6 @@ end
   end
   namespace :admin do
     resources :seesions, only:[:new, :create, :destroy]
-  end
-  namespace :admin do
-    resources :homes, only:[:top]
   end
   namespace :admin do
     resources :genres, only:[:index, :edit, :create, :update]
