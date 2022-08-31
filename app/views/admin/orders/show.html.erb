@@ -2,5 +2,37 @@
   <div class="row mt-2">
     <div class="col-mid-2 offset-md-2">注文履歴詳細</div>
   </div>
-  <div><%= "購入者" %></div> <div><</div>
+  <div><%= "購入者" %></div> <div><%= order.name %></div>
+  
+  <div><%= "注文日" %></div> <div><%= order.created_at %></div>
+  
+  <div><%= "配送先" %></div> <div><%= order.address %></div>
+  
+  <div><%= "支払方法" %></div> <div><%= order.payment_method %></div>
+  
+  <div><%= "注文ステータス" %></div> <div><%= order.status %></div>
+  
+  <div class="row-mt5 pt-5">
+    <div class="col-md-6 offset-md-3">
+      <div class="row field">
+        <div class="table">
+          <thead></thead>
+          <tbody>
+            <% @order.each do |order| %>
+            <tr>
+              <td><%= order.name %></td>
+              <td>単価（税込み)</td>
+              <td>数量</td>
+              <td>小計</td>
+              <td>製作ステータス</td>
+              <td>更新</td>
+            </tr>
+          </tbody>
+          <div>商品合計</div>
+          <div>送料</div>
+          <div><% "請求金額合計" %></div> <div><%= order.total_payment %></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

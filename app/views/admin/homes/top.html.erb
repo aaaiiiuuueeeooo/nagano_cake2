@@ -12,8 +12,18 @@
     <% @homes.each do |home| %>
     <tr>
       <td>
-        
+        <%= home.created_at %>
+      </td>
+      <td>
+        <%= home.name %>
+      </td>
+      <td>
+        <%= home.amount %>
+      </td>
+      <td>
+        <%= home.status %>
       </td>
     </tr>
+    <% end %>
   </tbody>
 </table>
