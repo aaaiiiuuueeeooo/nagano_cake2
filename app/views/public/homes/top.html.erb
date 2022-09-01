@@ -3,8 +3,8 @@
     <div class="col-mid-2 offset-md-2">ジャンル検索</div>
     <div class="table">
   <tr>
-    <% @homes.each do |home| %>
-    <td><%= home.find(params[:id]) %></td>
+    <% @genres.each do |genre| %>
+    <th><%= genre.name %></th>
     <% end %>
   </tr>
     </div>
@@ -13,7 +13,19 @@
 </div>
 <div class="row-mt3 pt-3">
   <div class="col-md-4 offset-md-2">
-    <div class="row field"></div>
+    <div class="row field">
+      <p>ようこそ、ながのCAKEへ！</br>
+      このサイトは、ケーキ販売のECサイトになります。</br>
+      会員でない方も商品の閲覧はできますが、</br>
+      購入には会員登録が必要になります。</p>
+    </div>
   </div>
 </div>
-    
+<div class="row-mt3 pt-3">
+  <div class="col-md-4 offset-md-2">
+    <div class="row field">
+      <p>新着商品</p>
+      <%= image_tag item.get_image, size: "300*300" %>
+    </div>
+  </div>
+</div>
