@@ -17,8 +17,7 @@ root to: 'homes#top'
   get 'confilm' => 'orders#confilm'
   get 'complete' => 'orders#complete'
   resources :items, only:[:index, :show]
-  resources :registrations, only:[:new, :create]
-  resources :sessions, only:[:new, :create, :destroy]
+ 
   resources :customers, only:[:show, :edit, :update]
   resources :cart_items, only:[:index, :update, :create, :destroy]
   resources :orders, only:[:new, :index, :show, :create]
@@ -27,13 +26,13 @@ end
   namespace :admin do
     get 'homes/top' => 'homes#top'
     resources :items, only:[:index, :new, :show, :edit, :create, :update]
- 
+
     resources :seesions, only:[:new, :create, :destroy]
 
     resources :genres, only:[:index, :edit, :create, :update]
 
     resources :customers, only:[:index, :show, :edit, :update]
- 
+
     resources :orders, only:[:show, :update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
