@@ -25,7 +25,9 @@
   <div class="col-md-4 offset-md-2">
     <div class="row field">
       <p>新着商品</p>
+      <% @items.each do |item| %>
       <%= image_tag item.get_image, size: "300*300" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -11,6 +11,66 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navar navar-expang-lg navber-dark bg-dark">
+        <div class="container">
+          <table class="table table-striped">
+            <tr>
+              <td>
+                <%= link_to "LOGO", root_path,class: "text-white" %>
+              </td>
+
+
+              <% if customer_signed_in? %>
+              <td>
+                <%= link_to root_path,class: "text-white" do %>
+                マイページ
+                <% end %>
+              </td>
+              <td>
+                <%= link_to items_path,class: "text-white" do %>
+                商品一覧
+                <% end %>
+              </td>
+              <td>
+                <%= link_to cart_items_path,class: "text-white" do %>
+                カート
+                <% end %>
+              </td>
+              <td>
+                <%= link_to destroy_customer_session_path,class: "text-white", method: :delete do %>
+                ログアウト
+                <% end %>
+              <% else %>
+              <td>
+
+                <%= link_to about_path,class: "text-white" do %>
+                About
+                <% end %>
+              </td>
+              <td>
+                <%= link_to items_path,class: "text-white" do %>
+                商品一覧
+                <% end %>
+              </td>
+              <td>
+                <%= link_to new_customer_registration_path,class: "text-white" do %>
+                新規登録
+                <% end %>
+              </td>
+              <td>
+                <%= link_to new_customer_session_path,class: "text-white" do %>
+                ログイン
+                <% end %>
+              </td>
+
+              </td>
+            </tr>
+           <% end %>
+          </table>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
