@@ -23,7 +23,7 @@
 
               <% if customer_signed_in? %>
               <td>
-                <%= link_to root_path,class: "text-white" do %>
+                <%= link_to customer_path(current_customer.id),class: "text-white" do %>
                 マイページ
                 <% end %>
               </td>
