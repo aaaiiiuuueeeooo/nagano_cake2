@@ -1,11 +1,14 @@
 <h6>マイページ</h6>
 登録情報 <%= link_to "編集する", edit_customer_path %>
-<% @customer.each do |customer| %>
 
-<div><%= "氏名" %></div> <div><%= customer.last_name %></div><div><%= customer.first_name %></div>
-<div><%= "カナ" %></div> <div><%= customer.last_name_kana %></div><div><%= customer.first_name_kana %></div>
-<div><%= "郵便番号" %></div> <div><%= customer.postal_code %></div>
-<div><%= "住所" %></div> <div><%= customer.address %></div>
-<div><%= "電話番号" %></div> <div><%= customer.telephone_number %></div>
-<div><%= "メールアドレス" %></div> <div><%= customer.email %></div>
-<% end %>
+
+<div><%= "氏名" %></div> <div><%= @customer.last_name %></div><div><%= @customer.first_name %></div>
+<div><%= "カナ" %></div> <div><%= @customer.last_name_kana %></div><div><%= @customer.first_name_kana %></div>
+<div><%= "郵便番号" %></div> <div><%= @customer.postal_code %></div>
+<div><%= "住所" %></div> <div><%= @customer.address %></div>
+<div><%= "電話番号" %></div> <div><%= @customer.telephone_number %></div>
+<div><%= "メールアドレス" %></div> <div><%= @customer.email %></div>
+
+<div>配送先</div><%= link_to "一覧を見る", addresses_path %>
+
+<div>注文履歴</div><%= link_to "一覧を見る", orders_path %>
