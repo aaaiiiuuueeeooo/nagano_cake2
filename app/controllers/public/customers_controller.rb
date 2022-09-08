@@ -13,4 +13,14 @@ class Public::CustomersController < ApplicationController
     @customer.update(user_params)
     redirect_to customer_path(@customer.id)
   end
+
+  def destroy
+    @customer = Customer.find(params[:id])
+    @customer = destoroy
+    redirect_to customer_path
+  end
+
+  def unsubscribe
+    @customer = current_customer
+  end
 end

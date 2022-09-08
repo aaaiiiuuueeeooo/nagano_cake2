@@ -11,13 +11,13 @@ scope module: :public do
 root to: 'homes#top'
   get 'homes/top'
   get 'about' => 'homes#about'
-  get 'unsubscribe' => 'customers#unsubscribe'
-  get 'withdraw' => 'customers#withdraw'
+  get 'customers/unsubscribe' => 'customers#unsubscribe'
+  get 'customers/withdraw' => 'customers#withdraw'
   get 'destroy_all' => 'cart_item#destroy_all'
   get 'confilm' => 'orders#confilm'
   get 'complete' => 'orders#complete'
   resources :items, only:[:index, :show]
- 
+
   resources :customers, only:[:show, :edit, :update]
   resources :cart_items, only:[:index, :update, :create, :destroy]
   resources :orders, only:[:new, :index, :show, :create]
