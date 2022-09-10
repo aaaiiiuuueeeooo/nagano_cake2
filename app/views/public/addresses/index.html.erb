@@ -1,0 +1,11 @@
+<h3>配送先登録/一覧</h3>
+<%= form_with model: @addresses,url: addresses_path, method: :patch, local: true do |form| %>
+<div><%= "郵便番号（ハイフンなし）" %></div> <div><%= addresses.postal_code %></div>
+<div><%= "住所" %></div> <div><%= addresses.address %></div>
+<div><%= "宛名" %></div> <div><%= addresses.name %></div>
+<%= @addresses.each do |addresses| %>
+<div>郵便番号</div> <div>住所</div> <div>宛名</div>
+<%= addresses.postal_code %>
+<%= addresses.address %>
+<%= addresses.name %>
+<%= link_to "編集する",edit_addresses_path %> <%=
