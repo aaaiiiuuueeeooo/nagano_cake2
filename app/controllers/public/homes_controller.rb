@@ -3,5 +3,9 @@ class Public::HomesController < ApplicationController
     @genres = Genre.all
     @items = Item.all
   end
-  
+
+  def about
+    @items = Item.all
+  end
+
 end

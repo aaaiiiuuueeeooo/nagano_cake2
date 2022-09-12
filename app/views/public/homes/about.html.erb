@@ -13,6 +13,8 @@
       ぜひご注文ください。</p>
     </div>
     
-    <画像出す>
+    <% @items.each do |item| %>
+      <%= image_tag item.get_image, size: "300*300" %>
+    <% end %>
   </div>
 </div>
