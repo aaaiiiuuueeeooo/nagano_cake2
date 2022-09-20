@@ -1,0 +1,7 @@
+<div>注文情報入力</div>
+<div>支払方法</div>
+<div><% @order.each do |order| %></div>
+<div><%= order.radio_button %></div>
+<div>お届け先</div>
+<div><%= order.radio_button %></div>
+<div><%= link_to "確認画面へ進む" orders_path, method: :post　%> </div>

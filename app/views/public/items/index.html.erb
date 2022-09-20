@@ -1,6 +1,9 @@
+<%= render 'genres',genres: @genres %>
 <h4>商品一覧</h4><h6>（全x件）</h6>
 <% @items.each do |item| %>
-<%= link_to item_path(params[:id]),image_tag item.get_image, size: "300*300" %>
+<%= link_to item_path(item.id) do %>
+<%= image_tag item.get_image, size: "300*300" %>
+<% end %>
 <%= item.name %>
 <%= item.price %>
 <% end %>

@@ -1,4 +1,5 @@
-<%= 画像表示　%>
-<%= item.name %>
-<%= item.introduction %>
-<%= item.price %>
+<%= render 'genres',genres: @genres %>
+<%= image_tag @item.get_image, size: "300*300" %>
+<%= @item.name %>
+<%= @item.introduction %>
+<%= @item.price %>

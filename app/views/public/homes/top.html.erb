@@ -1,11 +1,9 @@
+<%= render 'public/items/genres',genres: @genres %>
 <div class="container">
   <div class="row mt-2">
-    <div class="col-mid-2 offset-md-2">ジャンル検索</div>
+    <div class="col-mid-2 offset-md-2"></div>
     <div class="table">
   <tr>
-    <% @genres.each do |genre| %>
-    <th><%= genre.name %></th>
-    <% end %>
   </tr>
     </div>
     </div>
