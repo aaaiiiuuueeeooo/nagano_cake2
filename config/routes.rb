@@ -13,7 +13,7 @@ root to: 'homes#top'
   get 'about' => 'homes#about'
   get 'customers/unsubscribe' => 'customers#unsubscribe'
   get 'customers/withdraw' => 'customers#withdraw'
-  get 'orders/confilm' => 'orders#confilm'
+
   get 'orders/complete' => 'orders#complete'
   get 'destroy_all' => 'cart_item#destroy_all'
   get 'confilm' => 'orders#confilm'
