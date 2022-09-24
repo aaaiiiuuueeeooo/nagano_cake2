@@ -2,19 +2,20 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_item = CartItem.all
+    @total_payment = 0
   end
 
   def create
     @cart_item = CartItem.new(cart_item_params) #カート内に同じ商品があった場合
     cart_item=CartItem.find_by(item_id: cart_item_params[:item_id])
-      if cart_item.item_id == @cart_item.item_id
-       new_quantity = cart_item.quantity + @cart_item.quantity
-       cart_item.update_attribute(:quantity, new_quantity)
+      if cart_item
+       new_amount = cart_item.amount + @cart_item.amount
+       cart_item.update_attribute(:amount, new_amount)
        @cart_item.delete
       else #カート内に同じ商品がなかった場合
       @cart_item.save
-      redirect_to :cart_items_path
       end
+      redirect_to cart_items_path
   end
 
   private

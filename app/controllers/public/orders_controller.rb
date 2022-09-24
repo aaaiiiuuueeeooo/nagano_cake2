@@ -12,7 +12,8 @@ class Public::OrdersController < ApplicationController
   def create
   end 
   
-  def index
+  def new
+    @order = Order.new
   end 
   
   def show
