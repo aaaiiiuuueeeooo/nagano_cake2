@@ -16,7 +16,7 @@ root to: 'homes#top'
 
   get 'orders/complete' => 'orders#complete'
   get 'destroy_all' => 'cart_item#destroy_all'
-  get 'confilm' => 'orders#confilm'
+  post 'confilm' => 'orders#confilm'
   get 'complete' => 'orders#complete'
   resources :items, only:[:index, :show]
 
