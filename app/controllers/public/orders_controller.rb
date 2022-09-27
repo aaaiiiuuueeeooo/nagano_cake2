@@ -24,15 +24,23 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
-   end
+    end
   end
 
   def complete
   end
 
   def create
-    @order = Order.new
+    @order = Order.new(order_params)
+    @order.shipping_cost = 800
+    @order.status = 0
     @order.save
+    操作４(@order.each do |order|)
+    @order_details = OrderDetail.new
+    @order_details = 
+    
+  end 
+  操作５
     redirect_to complete_path
   end
 
@@ -43,5 +51,8 @@ class Public::OrdersController < ApplicationController
   def show
   end
 
-
+  private
+  def order_params
+    params.require(:order).permit(:payment_method,:postal_code,:address,:name,:total_payment,:customer_id)
+  end
 end
