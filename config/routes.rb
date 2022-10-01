@@ -15,7 +15,7 @@ root to: 'homes#top'
   get 'customers/withdraw' => 'customers#withdraw'
 
   get 'orders/complete' => 'orders#complete'
-  get 'destroy_all' => 'cart_item#destroy_all'
+  delete 'destroy_all' => 'cart_items#destroy_all'
   post 'confilm' => 'orders#confilm'
   get 'complete' => 'orders#complete'
   resources :items, only:[:index, :show]

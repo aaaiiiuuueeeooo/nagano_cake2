@@ -35,12 +35,17 @@ class Public::OrdersController < ApplicationController
     @order.shipping_cost = 800
     @order.status = 0
     @order.save
-    操作４(@order.each do |order|)
+    @cart_item = current_customer.cart_items
+    @cart_item.each do |order|
     @order_details = OrderDetail.new
-    @order_details = 
-    
-  end 
-  操作５
+    @order_details.item_id = order.item_id
+    @order_details.amount = order.amount
+    @order_details.order_id = @order.id
+    @order_details.price = order.item.price
+    @order_details.making_stat = 0
+    @order_details.save
+  end
+    current_customer.cart_items.destroy_all
     redirect_to complete_path
   end
 
@@ -49,6 +54,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
+
   end
 
   private
