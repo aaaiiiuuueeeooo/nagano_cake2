@@ -14,7 +14,7 @@
 
                 <div class="col-md-4"><%= "ジャンル" %></div><div class="col-md-8"><%= item.genre.name %></div>
 
-                <div class="col-md-4"><%= "税込み価格" %></br>
+                <div class="col-md-4"><%= "税込み価格" %><%= item.with_tax_price %></br>
                 <%= "（税抜価格)" %></div><div class="col-md-8"><%= item.price %></div>
 
                 <div class="col-md-4"><%= "販売ステータス" %></div><div class="col-md-8"><% if item.is_active %>

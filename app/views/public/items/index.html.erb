@@ -1,10 +1,10 @@
 <%= render 'genres',genres: @genres %>
-<h4>商品一覧</h4><h6>（全x件）</h6>
+<h4>商品一覧</h4><h6>（全<%= @items.count %>件）</h6>
 <% @items.each do |item| %>
 <%= link_to item_path(item.id) do %>
-<%= image_tag item.get_image, size: "300*300" %>
+<%= image_tag item.get_image, size: "100*100" %>
 <% end %>
 <%= item.name %>
 <%= item.price %>
 <% end %>
-
+<%= paginate @items %>

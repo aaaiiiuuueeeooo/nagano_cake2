@@ -18,10 +18,10 @@
             <%= customer.id %>
           </td>
           <td>
-            <%= customer.first_name %> <% customer.last_name %>
+            <%= link_to customer.fullname,admin_customer_path(customer.id) %>
           </td>
           <td>
-            <%= customer.address %>
+            <%= customer.email %>
           </td>
           <td>
             <%= customer.is_active %>
