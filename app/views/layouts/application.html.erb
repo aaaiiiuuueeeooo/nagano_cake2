@@ -41,6 +41,32 @@
                 <%= link_to destroy_customer_session_path,class: "text-white", method: :delete do %>
                 ログアウト
                 <% end %>
+              <% elsif admin_signed_in? %>
+              <td>
+                <%= link_to admin_items_path,class: "text-white" do%>
+                  商品一覧
+                <% end %>
+              </td>
+              <td>
+                <%= link_to admin_customers_path,class: "text-white" do %>
+                会員一覧
+                <% end %>
+              </td>
+              <td>
+                <%= link_to admin_homes_top_path,class: "text-white" do %>
+                注文履歴一覧
+                <% end %>
+              </td>
+              <td>
+                <%= link_to admin_genres_path,class: "text-white" do %>
+                ジャンル一覧
+                <% end %>
+              </td>
+              <td>
+                <%= link_to destroy_admin_session_path,class: "text-white", method: :delete do %>
+                ログアウト
+                <% end %>
+              </td>
               <% else %>
               <td>
 

@@ -1,37 +1,62 @@
 <div class="container">
   <div class="row mt-2">
-    <div class="col-mid-2 offset-md-2">注文履歴詳細</div>
-  </div>
-  <div><%= "購入者" %></div> <div><%= order.name %></div>
-  
-  <div><%= "注文日" %></div> <div><%= order.created_at %></div>
-  
-  <div><%= "配送先" %></div> <div><%= order.address %></div>
-  
-  <div><%= "支払方法" %></div> <div><%= order.payment_method %></div>
-  
-  <div><%= "注文ステータス" %></div> <div><%= order.status %></div>
-  
+    注文履歴詳細
+    <table class="col-mid-2 offset-md-2">
+      <thead></thead>
+      <tbody>
+        <tr><th>購入者</th><td><%= @order.name %></td></tr>
+        <tr><th>注文日</th><td><%= @order.created_at %></td></tr>
+        <tr><th>配送先</th><td><%= @order.address %></td></tr>
+        <tr><th>支払方法</th><td><%= @order.payment_method %></td></tr>
+        <%= form_with model: @order,url: admin_order_path, method: :patch, local: true do |f| %>
+        <tr><th>注文ステータス</th><td><%= f.select :status, Order.statuses_i18n.invert %></td></tr>
+        <% end %>
+      </tbody>
+    </table>
   <div class="row-mt5 pt-5">
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-12">
       <div class="row field">
-        <div class="table">
-          <thead></thead>
-          <tbody>
-            <% @order.each do |order| %>
+        <div class="order_details">
+        <table class="table">
+          <thead>
             <tr>
-              <td><%= order.name %></td>
-              <td>単価（税込み)</td>
-              <td>数量</td>
-              <td>小計</td>
-              <td>製作ステータス</td>
-              <td>更新</td>
+              <th>商品名</th>
+              <th>単価（税込み)</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th>製作ステータス</th>
+              <th></th>
             </tr>
+          </thead>
+          <tbody>
+            <% @order_details.each do |order| %>
+            <tr>
+              <td><%= order.name_id %></td>
+              <td><%= order.with_tax_price %></td>
+              <td><%= order.amount %></td>
+              <td><%= order.subtotal %></td>
+              <%= form_with model: order,url: admin_order_path, method: :patch, local: true do |f| %>
+              <td><%= f.select :making_stat, OrderDetail.making_stats_i18n.invert %></td>
+              <% end %>
+            </tr>
+            <% end %>
           </tbody>
-          <div>商品合計</div>
-          <div>送料</div>
-          <div><% "請求金額合計" %></div> <div><%= order.total_payment %></div>
-        </div>
+        </table>
+        <table>
+          <tr>
+            <td>商品合計</td>
+            <td><%= @order.total_payment %>円</td>
+          </tr>
+          <tr>
+            <td>送料</td>
+            <td><%= 800 %>円</td>
+          </tr>
+          <tr>
+            <td>請求金額合計</td>
+            <td><%= @order.total_payment + 800 %>円</td>
+          </tr>
+        </table>
+       </div>
       </div>
     </div>
   </div>

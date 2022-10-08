@@ -12,16 +12,16 @@
     <% @homes.each do |home| %>
     <tr>
       <td>
-        <%= home.created_at %>
+        <%= link_to home.created_at, admin_order_path(home.id) %>
       </td>
       <td>
-        <%= home.name %>
+        <%= home.order.name %>
       </td>
       <td>
         <%= home.amount %>
       </td>
       <td>
-        <%= home.status %>
+        <%= home.order.status %>
       </td>
     </tr>
     <% end %>
