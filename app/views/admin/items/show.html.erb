@@ -2,29 +2,28 @@
     <div class="row mt-2">
         <div class="col-mid-2 offset-md-2">商品詳細</div>
     </div>
-    <% @items.each do |item| %>
-    <%= image_tag item.get_image, size: "300×300" %>
+
+    <%= image_tag @item.get_image, size: "300×300" %>
     <div class="row-mt5 pt-5">
         <div class="col-md-6 offset-md-3">
             <div class="row field">
 
-                <div class="col-md-4"><%= "商品名" %></div><div class="col-md-8"><%= item.name %></div>
+                <div class="col-md-4"><%= "商品名" %></div><div class="col-md-8"><%= @item.name %></div>
 
-                <div class="col-md-4"><%= "商品説明" %></div><div class="col-md-8"><%= item.introduction %></div>
+                <div class="col-md-4"><%= "商品説明" %></div><div class="col-md-8"><%= @item.introduction %></div>
 
-                <div class="col-md-4"><%= "ジャンル" %></div><div class="col-md-8"><%= item.genre.name %></div>
+                <div class="col-md-4"><%= "ジャンル" %></div><div class="col-md-8"><%= @item.genre.name %></div>
 
-                <div class="col-md-4"><%= "税込み価格" %><%= item.with_tax_price %></br>
-                <%= "（税抜価格)" %></div><div class="col-md-8"><%= item.price %></div>
+                <div class="col-md-4"><%= "税込み価格" %><%= @item.with_tax_price %></br>
+                <%= "（税抜価格)" %></div><div class="col-md-8"><%= @item.price %></div>
 
-                <div class="col-md-4"><%= "販売ステータス" %></div><div class="col-md-8"><% if item.is_active %>
+                <div class="col-md-4"><%= "販売ステータス" %></div><div class="col-md-8"><% if @item.is_active %>
                 <p>販売中</p>
                 <% else %>
                 <p>販売停止中</p>
                 <% end %>
                 </div>
-                <%= link_to "編集する",edit_admin_item_path(item.id) %>
-                <% end %>
+                <%= link_to "編集する",edit_admin_item_path(@item.id) %>
             </div>
 
         </div>

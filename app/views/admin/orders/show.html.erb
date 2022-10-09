@@ -6,10 +6,10 @@
       <tbody>
         <tr><th>購入者</th><td><%= @order.name %></td></tr>
         <tr><th>注文日</th><td><%= @order.created_at %></td></tr>
-        <tr><th>配送先</th><td><%= @order.address %></td></tr>
+        <tr><th>配送先</th><td>〒<%= @order.postal_code %><%= @order.address %><%= @order.customer.fullname %></td></tr>
         <tr><th>支払方法</th><td><%= @order.payment_method %></td></tr>
         <%= form_with model: @order,url: admin_order_path, method: :patch, local: true do |f| %>
-        <tr><th>注文ステータス</th><td><%= f.select :status, Order.statuses_i18n.invert %></td></tr>
+        <tr><th>注文ステータス</th><td><%= f.select :status, Order.statuses_i18n.invert %><%= f.submit '更新' %></td></tr>
         <% end %>
       </tbody>
     </table>
@@ -31,7 +31,7 @@
           <tbody>
             <% @order_details.each do |order| %>
             <tr>
-              <td><%= order.name_id %></td>
+              <td><%= order.name.id %></td>
               <td><%= order.with_tax_price %></td>
               <td><%= order.amount %></td>
               <td><%= order.subtotal %></td>

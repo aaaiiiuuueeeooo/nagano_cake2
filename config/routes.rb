@@ -13,15 +13,13 @@ root to: 'homes#top'
   get 'about' => 'homes#about'
   get 'customers/unsubscribe' => 'customers#unsubscribe'
   get 'customers/withdraw' => 'customers#withdraw'
-
   get 'orders/complete' => 'orders#complete'
   delete 'destroy_all' => 'cart_items#destroy_all'
   post 'confilm' => 'orders#confilm'
   get 'complete' => 'orders#complete'
   resources :items, only:[:index, :show]
-
   resources :customers, only:[:show, :edit, :update]
-  resources :cart_items, only:[:index, :update, :create, :destroy]
+  resources :cart_items, only:[:index, :create, :update, :destroy]
   resources :orders, only:[:new, :index, :show, :create]
   resources :addresses, only:[:index, :edit, :create, :update, :destroy]
 end
