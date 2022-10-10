@@ -45,7 +45,8 @@
     <%= f.label :パスワード（確認用） %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+  <%= f.hidden_field :is_active, :value => true %>
+    
   <div class="actions">
     <%= f.submit "新規登録" %>
   </div>

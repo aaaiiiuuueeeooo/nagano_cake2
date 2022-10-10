@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders.all
   end
 
   def confilm
