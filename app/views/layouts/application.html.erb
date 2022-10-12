@@ -22,6 +22,7 @@
 
 
               <% if customer_signed_in? %>
+              <td class="text-white">ようこそ、<%= current_customer.last_name %>さん！</td>
               <td>
                 <%= link_to customer_path(current_customer.id),class: "text-white" do %>
                 マイページ

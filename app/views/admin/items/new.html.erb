@@ -19,7 +19,7 @@
       <div class="col-md-4"><%= form.label :genre_id, "ジャンル" %></div> <div class="col-md-8"><div><%= form.collection_select :genre_id, Genre.all, :id, :name, { prompt: "plese select" }, class: "form-control" %></div></div>
     </div>
     <div class="row field">
-      <div class="col-md-4"><%= form.label :price, "税抜価格" %></div> <div class="col-md-8"><%= form.number_field :price,class:"form-control" %></div>
+      <div class="col-md-4"><%= form.label :price, "税抜価格" %></div> <div class="col-md-8"><%= form.number_field :price,class:"form-control" %>円</div>
     </div>
     <div>
       <%= form.label :is_active, "販売ステータス" %><%= form.radio_button :is_active, :true %><%= form.label :is_active, "販売中", value: true %>
